@@ -29,7 +29,7 @@ addOne(-5) //=> -4
 
 console.log('||| Lemons, T. solution for 01-addOne |||')
 
-function addOne(a) {
+const addOne = (a) => {
   return a + 1;
 }
 
@@ -117,9 +117,9 @@ add(7,-12) //=> -5
 console.log('||| Lemons, T. solution for 04-addList |||')
 
 function addList() {
-  var total = 0
+  let total = 0
 
-  for (var i = 0; i < arguments.length; i++) {
+  for (let i = 0; i < arguments.length; i++) {
     total += parseFloat(arguments[i]);
   }
 
@@ -150,7 +150,7 @@ computeRemainder(10.5, 3) //=> 1.5
 
 console.log('||| Lemons, T. solution for 05-computeRemainder |||')
 
-function computeRemainder(num1, num2) {
+const computeRemainder = (num1, num2) => {
   let total = num1 % num2;
   if (num2 === 0) return Infinity
   return total;
@@ -178,7 +178,7 @@ range(5,2) //=> "First argument must be less than second"
 
 console.log('||| Lemons, T. solution for 06-range |||')
 
-function range(num1, num2) {
+const range = (num1, num2) => {
   if (num1 > num2) return "First argument must be less than second"
 
   let arr = [];
@@ -209,7 +209,7 @@ reverseUpcaseString("SEI Rocks!"); //=> "!SKCOR IES"
 
 console.log('||| Lemons, T. solution for 07-reverseUpcaseString |||')
 
-function reverseUpcaseString(str) {
+const reverseUpcaseString = (str) => {
   let string = str.split("").reverse().join("").toUpperCase();
   return string
 }
@@ -232,7 +232,7 @@ removeEnds('a'); //=> "" (empty string)
 
 console.log('||| Lemons, T. solution for 08-removeEnds |||')
 
-function removeEnds(str) {
+const removeEnds = (str) => {
 
   if (str.length < 3) {
     // console.log(str.length)
@@ -268,7 +268,7 @@ charCount('Today is fantastic!') //=> { T: 1, o: 1, d: 1, a: 3, y: 1, ' ': 2, i:
 
 console.log('||| Lemons, T. solution for 09-charCount |||')
 
-function charCount(str) {
+const charCount = (str) => {
   let words = {};
   for (let i = 0; i < str.length; i++) {
     const wordCount = str.charAt([i]);
@@ -305,7 +305,7 @@ formatWithPadding(1234, '*', 3); //=> "1234"
 
 console.log('||| Lemons, T. solution for 10-formatWithPadding |||')
 
-function formatWithPadding(int, singleChar, length) {
+const formatWithPadding = (int, singleChar, length) => {
   let word = int.toFixed(0);
   while (length > word.length) {
     word = singleChar + word;
@@ -338,7 +338,7 @@ isPalindrome(''); //=> true
 
 console.log('||| Lemons, T. solution for 11-isPalindrome |||')
 
-function isPalindrome(str) {
+const isPalindrome = (str) => {
 
   let re = /[\W_]/g;                          // ------ covers whitespace
   let lowRegStr = str.toLowerCase().replace(re, '');
@@ -371,7 +371,7 @@ hammingDistance('abc', 'ab'); //=> NaN
 
 console.log('||| Lemons, T. solution for 12-hammingDistance |||')
 
-function hammingDistance(str1, str2) {
+const hammingDistance = (str1, str2) => {
   if (str1.length !== str2.length) {
     return NaN
   }
@@ -514,7 +514,7 @@ console.log('||| Lemons, T. solution for 16-findHighestPriced |||')
 const findHighestPriced = (arr) => {
 
   let highestObj = arr[0];
-  for (var i = 0; i < arr.length-1; i++) {
+  for (let i = 0; i < arr.length-1; i++) {
     if (arr[i].price < arr[i+1].price) {
       highestObj = arr[i+1];
     }
@@ -563,7 +563,7 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 console.log('||| Lemons, T. solution for 17-mapArray |||')
 
 const mapArray = (arr, cb) => {
-  var newArr = []
+  let newArr = []
   for (let i = 0; i < arr.length; i++) {
     newArr.push(cb(arr[i], i))
   }
@@ -1069,24 +1069,23 @@ totalTaskTime( [5, 2, 6, 8, 7, 2], 3 ) // => 12
 
 console.log('||| Lemons, T. solution for 30-totalTaskTime |||')
 
-// const totalTaskTime = (arr, threads) => {
-//   arr.pop();
-//   arr.push(threads);
-//   return arr;
-// }
-
-function totalTaskTime(queue)
-{
-    if (queue === '')
-       return queue;
-    else {
-       data = queue.shift()
-       queue.pop()
-       queue = queue.reverse(queue);
-       queue.push(data);
-       return queue;
-    }
+const totalTaskTime = (arr, threads) => {
+  arr.pop();
+  arr.push(threads);
+  return arr
 }
+
+// const totalTaskTime = (queue) => {
+//   if (queue === '')
+//     return queue;
+//   else {
+//     data = queue.shift()
+//     queue.pop()
+//     queue = queue.reverse(queue);
+//     queue.push(data);
+//     return queue;
+//   }
+// }
 
 console.log(totalTaskTime( [], 1 )); // => 0
 console.log(totalTaskTime( [4, 2, 5], 1 )); // => 11
